@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>BankSystemManagement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/banks#index">Bank System</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <% if current_bank %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/banks#index">Bank</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/branches">Branch</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/account_departments">Account Department</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="/loan_departments">Loan Department</a>
+              </li>  
+            </ul>
+            <ul class="nav justify-content-end">
+              <li class="nav-item">
+                Logged in as <%= current_bank.bank_name %>
+              </li>
+              <li class="nav-item">
+                
+                <%= link_to current_bank.bank_name , banks_path, class: "nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Log Out', logout_path, method: :delete, class: "nav-link" %>
+              </li>
+              
+            </ul>
+            
+            <% else %>
+              <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <%= link_to 'Sign Up', signup_path %> or
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Log In', login_path %>
+                </li>
+                
+              </ul>
+            <% end %>
+          </div>
+      </nav>
+  
+    
+    
+  
+    <%= yield %>
+
+  </body>
+</html>

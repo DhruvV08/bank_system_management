@@ -1,0 +1,20 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank name:</strong>
+  <%= @bank.bank_name %>
+</p>
+
+<p>
+  <strong>Head office:</strong>
+  <%= @bank.head_office %>
+</p>
+
+<p>
+  <strong>bank image:</strong>
+  <%= @bank.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_bank_path(@bank), class: "btn btn-outline-secondary" %> 
+<%= link_to 'Back', banks_path, class: "btn btn-outline-secondary" %>

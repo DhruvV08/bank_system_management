@@ -1,0 +1,39 @@
+<center>
+  <%= form_with(model: account_department) do |form| %>
+  <% if account_department.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(account_department.errors.count, "error") %> prohibited this account_department from being saved:</h2>
+
+      <ul>
+        <% account_department.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row">
+    <%= form.label :account_type, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :account_type, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :account_no, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :account_no, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :account_balance, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :account_balance, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :branch_id, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :branch_id, class: "col-sm-6" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-secondary"%>
+  </div>
+<% end %>
+</center>

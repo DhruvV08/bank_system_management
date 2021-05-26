@@ -1,0 +1,43 @@
+<%= form_with(model: bank) do |form| %>
+  <% if bank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bank.errors.count, "error") %> prohibited this bank from being saved:</h2>
+
+      <ul>
+        <% bank.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row">
+    <%= form.label :bank_name, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :bank_name, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :head_office, class: "col-sm-2 col-form-label"  %>
+    <%= form.text_field :head_office, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :password, class: "col-sm-2 col-form-label" %>
+    <%= form.password_field :password, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :password_confirmation, class: "col-sm-2 col-form-label" %>
+    <%= form.password_field :password_confirmation, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bank_image, class: "col-sm-2 col-form-label" %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-secondary" %>
+  </div>
+  
+<% end %>

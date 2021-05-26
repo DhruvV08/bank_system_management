@@ -1,0 +1,58 @@
+<%= form_with(model: branch) do |form| %>
+  <% if branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(branch.errors.count, "error") %> prohibited this branch from being saved:</h2>
+
+      <ul>
+        <% branch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row">
+    <%= form.label :branch_name, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :branch_name, value: current_bank.bank_name, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :branch_address, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :branch_address, class: "col-sm-6" %>
+  </div>
+
+  <div class="mb-3 row">
+    <%= form.label :Bank_Code, class: "col-sm-2 col-form-label" %>
+    <%= form.text_field :bank_id, value: current_bank.id, class: "col-sm-6" %>
+  </div>
+  <%= form.fields_for :account_department do |account| %>
+    <div class="mb-3 row">
+      <%= account.label :account_type, class: "col-sm-2 col-form-label" %>
+      <%= account.text_field :account_type, class: "col-sm-6" %>
+    </div>
+
+    <div class="mb-3 row">
+      <%= account.label :account_no, class: "col-sm-2 col-form-label" %>
+      <%= account.text_field :account_no, class: "col-sm-6" %>
+    </div>
+
+    <div class="mb-3 row">
+      <%= account.label :account_balance, class: "col-sm-2 col-form-label" %>
+      <%= account.text_field :account_balance, class: "col-sm-6" %>
+    </div>
+  <% end %>
+  <%= form.fields_for :loan_department do |loan| %>
+    <div class="mb-3 row">
+      <%= loan.label :loan_type, class: "col-sm-2 col-form-label" %>
+      <%= loan.text_field :loan_type, class: "col-sm-6" %>
+    </div>
+
+    <div class="mb-3 row">
+      <%= loan.label :loan_amount, class: "col-sm-2 col-form-label" %>
+      <%= loan.text_field :loan_amount, class: "col-sm-6" %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-secondary"%>
+  </div>
+<% end %>

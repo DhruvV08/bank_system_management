@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<center>
+<p>
+  <strong>Account type:</strong>
+  <%= @account_department.account_type %>
+</p>
+
+<p>
+  <strong>Account no:</strong>
+  <%= @account_department.account_no %>
+</p>
+
+<p>
+  <strong>Account balance:</strong>
+  <%= @account_department.account_balance %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @account_department.branch_id %>
+</p>
+
+<%= link_to 'Edit', edit_account_department_path(@account_department), class: "btn btn-outline-secondary" %> 
+<%= link_to 'Back', account_departments_path, class: "btn btn-outline-secondary" %>
+</center>

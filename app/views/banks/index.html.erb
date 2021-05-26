@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<center><h1>Bank management system</h1></center>
+
+
+ <% if current_bank %>
+
+
+<table class="table">
+  <thead class="table-secondary">
+    <tr>
+      <th>name</th>
+      <th>address</th>
+      <th>image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banks.each do |bank| %>
+      <% if bank == current_bank %>
+      <tr>
+        <td><%= bank.bank_name %></td>
+        <td><%= bank.head_office %></td>
+        <td><img src="<%= bank.avatar %>" width="100" height="100"></td>
+        <td><%= link_to "Show", bank, class: "btn btn-outline-secondary" %></td>
+        <td><%= link_to "Edit", edit_bank_path(bank), class: "btn btn-outline-secondary" %></td>
+        <td><%= link_to "Destroy", bank, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-secondary" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+   
+<br>
+<% end %>
+
+
+

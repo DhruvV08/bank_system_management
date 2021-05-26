@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan_type: MyString
+  loan_amount: 
+  branch: one
+
+two:
+  loan_type: MyString
+  loan_amount: 
+  branch: two

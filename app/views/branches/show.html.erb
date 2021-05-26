@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Branch name:</strong>
+	  <%= @branch.branch_name %>
+	</p>
+
+	<p>
+	  <strong>Branch address:</strong>
+	  <%= @branch.branch_address %>
+	</p>
+
+	<p>
+	  <strong>Bank:</strong>
+	  <%= @branch.bank_id %>
+	</p>
+	
+	
+
+	<%= link_to 'Edit', edit_branch_path(@branch), class: "btn btn-outline-secondary" %> 
+	<%= link_to 'Back', branches_path, class: "btn btn-outline-secondary" %>
